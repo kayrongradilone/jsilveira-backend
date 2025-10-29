@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
+@Entity("user")
 export class User {
   @PrimaryGeneratedColumn("uuid")
   readonly id: string;
@@ -11,10 +11,10 @@ export class User {
   @Column()
   email: string;
 
-  @Column()
+  @Column({ select: false })
   password: string;
 
-  @Column({ default: true })
+  @Column({default: true })
   is_active: boolean;
 
   @Column()

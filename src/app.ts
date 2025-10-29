@@ -22,9 +22,9 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
       message: err.message,
     });
   }
-  
-  console.error("Erro não tratado:", err); 
-  
+
+  console.error("Erro não tratado:", err);
+
   return response.status(500).json({
     status: "error",
     message: "Internal server error",
