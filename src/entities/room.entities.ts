@@ -15,7 +15,7 @@ export class Room {
   readonly id: string;
 
   @Column({ type: "varchar", length: 50, unique: true })
-  number: string;
+  office: string;
 
   @Column({ type: "int" })
   floor: number;
