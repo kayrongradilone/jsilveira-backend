@@ -26,6 +26,9 @@ export class Room {
   @Column({ type: "boolean", default: true })
   is_available: boolean;
 
+  @Column({ type: "decimal", precision: 10, scale: 2, nullable: true })
+  monthly_price: number;
+
   @OneToMany(() => Tenant, (tenant) => tenant.room)
   tenants: Tenant[];
 

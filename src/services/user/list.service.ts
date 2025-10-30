@@ -30,7 +30,6 @@ const ListUsersService = async ({
   }
 
   if (email && email.trim().length > 0) {
-    console.log("→ Adicionando filtro email:", email);
     qb.andWhere("LOWER(user.email) LIKE LOWER(:email)", {
       email: `%${email}%`,
     });
