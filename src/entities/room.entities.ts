@@ -5,9 +5,9 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   OneToMany,
-  Index,
 } from "typeorm";
 import { Tenant } from "./tenants.entities";
+import { BankSlip } from "./bank_slip.entities";
 
 @Entity("rooms")
 export class Room {
@@ -31,6 +31,9 @@ export class Room {
 
   @OneToMany(() => Tenant, (tenant) => tenant.room)
   tenants: Tenant[];
+
+  @OneToMany(() => BankSlip, (bankSlip) => bankSlip.room)
+  bank_slips: BankSlip[];
 
   @CreateDateColumn()
   created_at: Date;

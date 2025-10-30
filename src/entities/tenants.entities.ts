@@ -6,9 +6,10 @@ import {
   UpdateDateColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from "typeorm";
 import { Room } from "./room.entities";
-
+import { BankSlip } from "./bank_slip.entities";
 @Entity("tenants")
 export class Tenant {
   @PrimaryGeneratedColumn("uuid")
@@ -35,6 +36,9 @@ export class Tenant {
 
   @Column({ type: "uuid" })
   room_id: string;
+
+  @OneToMany(() => BankSlip, (bankSlip) => bankSlip.tenant)
+  bank_slips: BankSlip[];
 
   @CreateDateColumn()
   created_at: Date;
